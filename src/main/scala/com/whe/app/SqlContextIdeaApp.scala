@@ -1,10 +1,9 @@
-package com.whe
+package com.whe.app
 
-import org.apache.spark.SparkContext
-import org.apache.spark.SparkConf
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SQLContext
 
-object Mytest {
+object SqlContextIdeaApp {
 
   def main(args: Array[String]): Unit = {
 
@@ -12,7 +11,7 @@ object Mytest {
 
     val sparkConf = new SparkConf()
 
-/*    sparkConf.setAppName("dfdf").setMaster("local[2]")*/
+    sparkConf.setAppName("dfdf").setMaster("local[2]")
 
     val sc = new SparkContext(sparkConf)
 
