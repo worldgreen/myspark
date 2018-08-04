@@ -65,6 +65,10 @@
     
  - 浏览ResourceManager的Web界面
  
-    localhost：8088
+    http://localhost:8088/
+    
+ - 免密码启动Hadoop 
+ 
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     
  
