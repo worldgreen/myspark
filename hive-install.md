@@ -73,9 +73,7 @@
          <value>hive</value>
        </property>
     ```
-    创建tmp文件   mkdir apache-hive-2.3.3/tmp
-    把{system:java.io.tmpdir} 改成 apache-hive-2.3.3/tmp 删去 {system:user.name}
-      
+    
  6. 初始化hive 
     
     schematool -dbType mysql -initSchema hive hive
