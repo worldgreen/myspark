@@ -1,17 +1,22 @@
 package com.whe.app
 
-import org.apache.spark.sql.SparkSession
+
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Date
+
+import org.apache.commons.lang.time.FastDateFormat
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.sql.{Row, SparkSession}
 
 object SparkSessionIdeaApp {
 
   def main(args: Array[String]): Unit = {
 
-    val spark = SparkSession.builder().appName("SparkSessionIdeaApp").master("local[2]").getOrCreate();
-
-    val people = spark.read.json("file:///Users/wanghongen/people.json")
-
-    people.show()
-
-    spark.stop()
+    val conf = new SparkConf().setAppName("name").setMaster("local[2]")
+    val sc = new SparkContext(conf)
+    val rdd = sc.textFile("/Users/wanghongen/Documents/file/people.txt", minPartitions = 3)
+    rdd.flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _).collect()
+    sc.stop()
   }
 }

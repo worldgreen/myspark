@@ -18,7 +18,7 @@ object SqlContextIdeaApp {
     val sqlC = new SQLContext(sc)
 
     val peo  = sqlC.read.format("json").load(path)
-    peo.show()
+    peo.printSchema()
 
     sc.stop()
   }
